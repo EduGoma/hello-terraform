@@ -11,9 +11,11 @@ provider "aws" {
   region = "eu-west-1"
 }
 resource "aws_instance" "app_server" {
-  ami           = "ami-0b752bf1df193a6c4"
-  instance_type = "t2.micro"
+  ami                    = "ami-0b752bf1df193a6c4"
+  instance_type          = "t2.micro"
+  key_name               = "clave-lucatic"
+  vpc_security_group_ids = ["sg-068c536b23394be69"]
   tags = {
-    Name = "Example"
+    Name = "Ejemplo"
   }
 }
