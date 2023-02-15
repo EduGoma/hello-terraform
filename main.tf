@@ -26,17 +26,7 @@ resource "aws_instance" "app_server" {
     private_key = file("~/.ssh/clave-lucatic.pem")
     host        = self.public_ip
   }
-  provisioner "file" {
-    source      = "../hello-2048/public_html/"
-    destination = "/home/ec2-user/"
+  provisioner "local-exec" {
+    command = "ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"
   }
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum install -y httpd",
-      "sudo systemctl start httpd",
-      "sudo systemctl enable httpd",
-      "sudo mv /home/ec2-user/* /var/www/html/"
-    ]
-  }
-
 }
