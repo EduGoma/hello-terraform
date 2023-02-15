@@ -4,6 +4,10 @@
   vars:
     ansible_user: ec2-user
   tasks:
+    - name: Wait for connection to be ready
+      wait_for_connection:
+        delay: 5
+        timeout: 300
     - name: Install Apache
       yum:
         name: httpd
@@ -21,7 +25,7 @@
 
     - name: Copy local directory to remote server
       copy:
-        src: "../hello-2048/public_html/"
+        src: "/home/eduard/hello-2048/public_html/"
         dest: "/var/www/html/"
         owner: apache
         group: apache

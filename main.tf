@@ -27,6 +27,7 @@ resource "aws_instance" "app_server" {
     host        = self.public_ip
   }
   provisioner "local-exec" {
-    command = "ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"
+    working_dir = "ansible"
+    command     = "ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"
   }
 }
