@@ -20,21 +20,23 @@ resource "aws_instance" "app_server" {
     Name = var.instance_name
     APP  = "vue2048"
   }
-  user_data = <<EOH
-  #!/bin/sh
-  yum update -y
-  amazon-linux-extras install -y docker
-  service docker start
-  systemctl enable docker
-  usermod -a -G docker ec2-user
-  pip3 install docker-compose
-  wget  https://raw.githubusercontent.com/EduGoma/hello-2048/main/docker-compose.yaml
-  mkdir /home/ec2-user/hello-2048
-  chown ec2-user /home/ec2-user/hello-2048
-  sudo chgrp ec2-user /home/ec2-user/hello-2048
-  mv docker-compose.yaml /home/ec2-user/hello-2048/
-  cd /home/ec2-user/hello-2048
-  docker-compose pull
-  docker-compose up -d
-  EOH
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"
+    private_key = file("~/.ssh/clave-lucatic.pem")
+    host        = self.public_ip
+  }
+  provisioner "file" {
+    source      = "../hello-2048/public_html/"
+    destination = "/home/ec2-user/"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum install -y httpd",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd",
+      "sudo mv /home/ec2-user/* /var/www/html/"
+    ]
+  }
+
 }
