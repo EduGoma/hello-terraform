@@ -27,11 +27,14 @@
       pip:
         name: docker-compose
         executable: pip3
+    - name: Install pip
+      yum:
+        name: python-pip
+        state: present
     - name: Instalar módulo de Python para Docker
       pip:
         name: docker
         state: present
-        executable: pip3
     - name: Copy local directory to remote server
       copy:
         src: "./docker-compose.yaml"
