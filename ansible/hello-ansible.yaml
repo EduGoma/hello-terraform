@@ -45,17 +45,16 @@
         append: true
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
-    #- name: Ejecutar docker-compose up --no-build
-      #become_user: ec2-user
-      #command: chdir=/home/ec2-user/ docker-compose up --no-build -d
-    - name: Run docker-compose up
+    - name: Ejecutar docker-compose up --no-build
+      become_user: ec2-user
+      command: chdir=/home/ec2-user/ docker-compose up -d
+    #- name: Run docker-compose up
       #become: false
       #shell: 
         #cmd: cd /home/ec2-user/
         #cmd: docker-compose --no-build -d
-      docker_compose:
-
+      #docker_compose:
         #recreate: never
-        project_src: flask
-      register: output
+        #project_src: flask
+      #register: output
     
