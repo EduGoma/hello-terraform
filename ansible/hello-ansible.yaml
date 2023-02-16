@@ -10,8 +10,10 @@
         delay: 30
         sleep: 5
         timeout: 300
-    - name: Install Docker
-      command: "amazon-linux-extras install -y docker"
+    - name: Instalar Docker
+      yum:
+        name: docker
+        state: latest
     - name: Inicio Docker
       service:
         name: docker
@@ -43,6 +45,9 @@
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: crear carpeta
       command: "mkdir /home/ec2-user/Docker"
-    - name: Deploy imagen
-      command: "docker-compose up -d"
+    - name: Run `docker-compose up`
+      community.docker.docker_compose:
+        project_src: flask
+        build: false
+      register: output
     
