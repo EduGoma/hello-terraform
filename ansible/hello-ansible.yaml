@@ -48,6 +48,5 @@
     - name: Run docker-compose up
       community.docker.docker_compose:
         project_src: flask
-        build: false
       register: output
     
