@@ -52,7 +52,7 @@ pipeline {
     stage('Ansible Apply') {
       steps {
         sshagent(['ssh-amazon']) {
-        sh "sudo ansible-playbook -i ./ansible/aws_ec2.yaml ./ansible/hello-ansible.yaml"
+        sh "ansible-playbook -i ./ansible/aws_ec2.yaml ./ansible/hello-ansible.yaml"
         }
       }                
     }
