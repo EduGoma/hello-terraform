@@ -21,10 +21,10 @@
       service:
         name: docker
         state: started
-    - name: habilitar Docker
-      service:
+    - name: Habilitar servicio de Docker
+      systemd:
         name: docker
-        state: enabled
+        enabled: yes
     - name: Instalar Python3
       become: false
       yum:
