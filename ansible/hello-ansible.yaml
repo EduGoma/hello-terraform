@@ -47,7 +47,6 @@
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Ejecutar docker-compose up --no-build
       become_user: ec2-user
-      become: false
       command: chdir=/home/ec2-user/ docker-compose up --no-build
     #- name: Run docker-compose up
       #become: false
