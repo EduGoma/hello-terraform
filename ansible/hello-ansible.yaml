@@ -19,11 +19,8 @@
         name: docker
         state: started
         enabled: true   
-    - name: Instalar Python3
-      become: false
-      yum:
-        name: python
-        state: latest
+    - name: Instalar pip 
+      raw: yum -y install python-pip
     - name: Instalar Docker Compose
       pip:
         name: docker-compose
