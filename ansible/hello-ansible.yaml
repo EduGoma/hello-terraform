@@ -27,6 +27,10 @@
       pip:
         name: docker-compose
         executable: pip3
+    - name: Instalar libreria docker
+      pip:
+        name: docker
+        executable: pip3
     - name: Copy local directory to remote server
       copy:
         src: "../docker-compose.yaml"
