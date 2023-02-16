@@ -33,7 +33,7 @@
         executable: pip3
     - name: Copy local directory to remote server
       copy:
-        src: "../docker-compose.yaml"
+        src: "./docker-compose.yaml"
         dest: "/home/ec2-user/"
         owner: ec2-user
         group: ec2-user
@@ -45,17 +45,15 @@
         append: true
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
-    - name: Ejecutar docker-compose up --no-build
-      become_user: ec2-user
-      command: chdir=/home/ec2-user/ docker-compose up --no-build -d
+    #- name: Ejecutar docker-compose up --no-build
+      #become_user: ec2-user
+      #command: chdir=/home/ec2-user/ docker-compose up --no-build -d
     #- name: Run docker-compose up
       #become: false
       #shell: 
         #cmd: cd /home/ec2-user/
         #cmd: docker-compose --no-build -d
-      #docker_compose:
-        #build: no
-        #recreate: never
-        #project_src: flask
-      #register: output
+      docker_compose:
+        project_src: flask
+      register: output
     

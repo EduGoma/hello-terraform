@@ -1,0 +1,6 @@
+version: "3"
+services:
+  hello-2048:
+    image: ghcr.io/edugoma/hello-terraform
+    ports:
+      - "80:80"
