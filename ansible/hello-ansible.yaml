@@ -21,8 +21,9 @@
       yum:
         name: python3
         state: present
-    - name: Install Docker Compose
-      yum:
+    - name: Instalar Docker Compose
+      become: false
+      pip:
         name: docker-compose
         state: present
     - name: Copy local directory to remote server
