@@ -20,11 +20,11 @@
     - name: Instalar Python3
       become: false
       yum:
-        name: python3
+        name: python2
         state: latest
     - name: Instalar Docker Compose
       become: false
-      pip3:
+      pip:
         name: docker-compose
         state: present
     - name: Copy local directory to remote server
