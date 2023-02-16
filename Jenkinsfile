@@ -1,26 +1,29 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-
-                }
-                
-            }
+  agent any
+    stage('Terraform Init') {
+      steps {
+        withAWS(credentials: 'AWS-credential') {
+          sh "terraform init"
         }
-         stage('Package'){
-             steps{
-
-                }
-            }
-        }
-        stage('Deploy') {
-            steps {            
-                withAWS(credentials: 'AWS-credential', region: 'eu-west-1') {
-                    // some block
-                }
-                }
-            }
-        }
+      }
     }
+
+    stage('Terraform Plan') {
+      steps {
+        withAWS(credentials: 'AWS-credential') {
+            sh "terraform fmt"
+            sh "terraform validate"
+            sh "terraform plan"
+        }
+      }
+    }
+
+    stage('Terraform Apply') {
+      steps {
+        withAWS(credentials: 'AWS-credential') {
+            sh "terraform apply -auto-approve"
+        }
+      }
+    }
+  }
 }
