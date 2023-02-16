@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  stages{
     stage('Terraform Init') {
       steps {
         withAWS(credentials: 'AWS-credential') {
@@ -7,7 +8,6 @@ pipeline {
         }
       }
     }
-
     stage('Terraform Plan') {
       steps {
         withAWS(credentials: 'AWS-credential') {
@@ -17,7 +17,6 @@ pipeline {
         }
       }
     }
-
     stage('Terraform Apply') {
       steps {
         withAWS(credentials: 'AWS-credential') {
@@ -25,4 +24,5 @@ pipeline {
         }
       }
     }
+  }   
 }
