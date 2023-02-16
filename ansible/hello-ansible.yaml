@@ -41,6 +41,10 @@
         name: ec2-user
         groups: docker
         append: true
+    - name: Instalar la librería de Python `docker`
+      pip:
+        name: docker
+        executable: pip3
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Run `docker-compose up`
