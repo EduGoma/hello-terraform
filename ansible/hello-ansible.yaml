@@ -27,14 +27,10 @@
       pip:
         name: docker-compose
         executable: pip3
-    - name: Install pip
-      yum:
-        name: python-pip
-        state: present
-    - name: Instalar módulo de Python para Docker
+    - name: Instalar libreria docker
       pip:
         name: docker
-        state: present
+        executable: pip3
     - name: Copy local directory to remote server
       copy:
         src: "./docker-compose.yaml"
@@ -52,12 +48,14 @@
     #- name: Ejecutar docker-compose up --no-build
       #become_user: ec2-user
       #command: chdir=/home/ec2-user/ docker-compose up --no-build -d
-    - name: docker-compose up
+    - name: Run docker-compose up
       #become: false
       #shell: 
         #cmd: cd /home/ec2-user/
         #cmd: docker-compose --no-build -d
       docker_compose:
+
+        #recreate: never
         project_src: flask
       register: output
     
