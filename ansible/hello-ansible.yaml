@@ -48,7 +48,7 @@
     #- name: Ejecutar docker-compose up --no-build
       #become_user: ec2-user
       #command: chdir=/home/ec2-user/ docker-compose up --no-build -d
-    #- name: Run docker-compose up
+    - name: docker-compose up
       #become: false
       #shell: 
         #cmd: cd /home/ec2-user/
