@@ -3,3 +3,4 @@ regions:
   - eu-west-1
 filters:
   tag:APP: vue2048
+
