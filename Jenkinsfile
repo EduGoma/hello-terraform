@@ -40,7 +40,7 @@ pipeline {
         }
       }
     }
-    stage('Terraform Apply') {S
+    stage('Terraform Apply') {
       steps {
         withAWS(credentials: 'AWS-credential') {
           
