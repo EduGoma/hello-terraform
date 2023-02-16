@@ -42,7 +42,6 @@
     - name: Cambios de permisos
       command: "usermod -aG docker ec2-user"
     - name: Descarga de imagen
-      become: false
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Deploy imagen
       become: false
