@@ -23,7 +23,7 @@ resource "aws_instance" "app_server" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("~/.ssh/clave-lucatic.pem")
+    private_key = file("/home/eduard/.ssh/clave-lucatic.pem")
     host        = self.public_ip
   }
   provisioner "local-exec" {
