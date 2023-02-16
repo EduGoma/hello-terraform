@@ -18,9 +18,13 @@
         name: docker
         state: latest
     - name: Inicio Docker
-      yum:
+      service:
         name: docker
         state: started
+    - name: habilitar Docker
+      yum:
+        name: docker
+        state: enabled
     - name: Instalar Python3
       become: false
       yum:
@@ -36,9 +40,11 @@
         group: ec2-user
         mode: 0755
     - name: Cambios de permisos
-      command: "sudo usermod -aG docker ec2-user"
+      command: "usermod -aG docker ec2-user"
     - name: Descarga de imagen
+      become: false
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Deploy imagen
+      become: false
       command: "docker-compose up -d"
     
