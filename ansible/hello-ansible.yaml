@@ -8,12 +8,28 @@
       wait_for_connection:
         delay: 5
         timeout: 300
+    - name: Update apt cache
+      yum:
+        name: '*'
+        state: latest
     - name: Install Docker
       yum:
         name: docker
         state: latest
-    - name: Install pip
-      raw: sudo yum install -y python-pip
-    - name: Install Docker Compose
-      raw: pip install docker-compose
+    - name: Instalar Python3
+      yum:
+        name: python3
+        state: present
+    - name: Instalar Docker Compose
+      become: true
+      pip:
+        name: docker-compose
+        state: present
+    - name: Copy local directory to remote server
+      copy:
+        src: "docker-compose.yaml"
+        dest: "/home/ec2-user/"
+        owner: ec2-user
+        group: ec2-user
+        mode: 0755
     
