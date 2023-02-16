@@ -20,12 +20,6 @@ resource "aws_instance" "app_server" {
     Name = var.instance_name
     APP  = "vue2048"
   }
-  connection {
-    type        = "ssh"
-    user        = "ec2-user"
-    private_key = file("/home/eduard/.ssh/clave-lucatic.pem")
-    host        = self.public_ip
-  }
   provisioner "local-exec" {
     working_dir = "ansible"
     command     = "ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"
