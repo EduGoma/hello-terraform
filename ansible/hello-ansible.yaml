@@ -47,7 +47,7 @@
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Run docker-compose up
       docker_compose:
-        build: never
+        build: no
         recreate: never
         project_src: flask
       register: output
