@@ -22,7 +22,7 @@
         name: docker
         state: started
     - name: habilitar Docker
-      yum:
+      service:
         name: docker
         state: enabled
     - name: Instalar Python3
