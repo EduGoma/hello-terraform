@@ -12,3 +12,11 @@
       yum:
         name: docker
         state: latest
+    - name: Install prerequisites
+      yum:
+        name: python-pip
+        state: present
+    - name: Install Docker Compose
+      pip:
+        name: docker-compose
+        state: present

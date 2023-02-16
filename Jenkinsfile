@@ -49,5 +49,10 @@ pipeline {
         }
       }
     }
+    stage('Ansible Apply') {
+      steps {
+        sh "ansible-playbook -i ./ansible/aws_ec2.yaml ./ansible/hello-ansible.yaml"
+      }
+    }
   }   
 }
