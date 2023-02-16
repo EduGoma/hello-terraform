@@ -24,7 +24,7 @@
         state: latest
     - name: Instalar Docker Compose
       become: false
-      pip:
+      pip3:
         name: docker-compose
         state: present
     - name: Copy local directory to remote server
