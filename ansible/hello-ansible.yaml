@@ -35,8 +35,6 @@
       command: "sudo usermod -aG docker ec2-user"
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
-    - name: Cambios de permisos
-      command: "sudo usermod -aG docker ec2-user"
     - name: Deploy imagen
       command: "docker-compose up -d"
     
