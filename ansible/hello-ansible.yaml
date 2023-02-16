@@ -23,7 +23,7 @@
       become: false
       yum:
         name: python
-        #state: latest
+        state: latest
     - name: Instalar Docker Compose
       pip:
         name: docker-compose
