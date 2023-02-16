@@ -57,10 +57,11 @@ pipeline {
         }
       }                
     }
-    stage('Deploy docker-compose'){
-      steps{
-        sh "docker-compose up -d"
-      }
-    }
+    stage('Deploy') {
+      steps {            
+          sshagent(['ssh-amazon']) {
+              sh """ssh ec2-user@176.34.77.107 docker-compose up -d"""
+          }
+        }
   }   
 }
