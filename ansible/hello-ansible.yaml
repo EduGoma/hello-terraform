@@ -46,7 +46,8 @@
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Run docker-compose up
-      community.docker.docker_compose:
+      docker_compose:
+        build: never
         recreate: never
         project_src: flask
       register: output
