@@ -17,6 +17,10 @@
       yum:
         name: docker
         state: latest
+    - name: Inicio Docker
+      yum:
+        name: docker
+        state: started
     - name: Instalar Python3
       become: false
       yum:
