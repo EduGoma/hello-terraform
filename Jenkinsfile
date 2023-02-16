@@ -42,10 +42,11 @@ pipeline {
     }
     stage('Terraform Apply') {
       steps {
-        withAWS(credentials: 'AWS-credential')     
+        withAWS(credentials: 'AWS-credential') {    
           sh "terraform apply -auto-approve"        
         }
       }
+    }
     stage('Ansible Apply') {
       steps {
         withAWS(credentials: 'AWS-credential') {
