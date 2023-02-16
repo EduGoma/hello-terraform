@@ -12,10 +12,8 @@
       yum:
         name: docker
         state: latest
-    - name: Install prerequisites
-      yum:
-        name: python3
-        state: present
+    - name: Install pip
+      raw: sudo apt-get install -y python-pip
     - name: Install Docker Compose
       pip:
         name: docker-compose
