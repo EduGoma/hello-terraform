@@ -1,0 +1,8 @@
+
+version: "3"
+services:
+  hello-2048:
+    image: ghcr.io/edugoma/hello-terraform
+    build: ./Docker/
+    ports:
+      - "80:80"

@@ -5,6 +5,16 @@ pipeline {
     timestamps()
    }
   stages{
+    stage('Build images') {
+      steps {
+        sh 'docker-compose build'
+        sh "git tag 1.0.${BUILD_NUMBER}" 
+        sh "docker tag ghcr.io/edugoma/hello-terraform:latest ghcr.io/edugoma/hello-2048:1.0.${BUILD_NUMBER}" 
+        sshagent(['Git-hubSSH']) {
+          sh "git push --tags"
+        }
+      }
+    }
     stage('Terraform Init') {
       steps {
         withAWS(credentials: 'AWS-credential') {
