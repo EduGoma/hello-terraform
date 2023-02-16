@@ -44,5 +44,5 @@
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Deploy imagen
-      command: "docker-compose up -d"
+      shell: "docker-compose up -d"
     
