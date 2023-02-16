@@ -8,25 +8,7 @@
       wait_for_connection:
         delay: 5
         timeout: 300
-    - name: Install Apache
+    - name: Install Docker
       yum:
-        name: httpd
+        name: docker
         state: latest
-
-    - name: Start Apache service
-      service:
-        name: httpd
-        state: started
-
-    - name: Restart Apache service
-      service:
-        name: httpd
-        state: restarted
-
-    - name: Copy local directory to remote server
-      copy:
-        src: "/home/eduard/hello-2048/public_html/"
-        dest: "/var/www/html/"
-        owner: apache
-        group: apache
-        mode: 0755
