@@ -31,9 +31,10 @@
         name: python
         state: latest
     - name: Instalar Docker Compose
-      yum:
-        update_cache: yes
+      pip:
         name: docker-compose
+        executable: pip3
+      become: false
     - name: Copy local directory to remote server
       copy:
         src: "../docker-compose.yaml"
