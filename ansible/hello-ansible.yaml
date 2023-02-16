@@ -14,7 +14,7 @@
         state: latest
     - name: Install prerequisites
       yum:
-        name: python-pip
+        name: python3
         state: present
     - name: Install Docker Compose
       pip:
