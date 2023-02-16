@@ -15,7 +15,5 @@
     - name: Install pip
       raw: sudo yum install -y python-pip
     - name: Install Docker Compose
-      pip:
-        name: docker-compose
-        state: present
+      raw: pip install docker-compose
     
