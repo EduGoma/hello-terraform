@@ -20,7 +20,7 @@
     - name: Instalar Python3
       become: false
       yum:
-        name: python2
+        name: pip
         state: latest
     - name: Instalar Docker Compose
       become: false
