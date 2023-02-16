@@ -46,7 +46,8 @@
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Run docker-compose up
-      shell: "pwd && docker-compose up --no-build -d"
+      shell: 
+        cmd: "pwd && docker-compose up --no-build -d"
       #docker_compose:
         #build: no
         #recreate: never
