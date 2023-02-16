@@ -42,18 +42,17 @@ pipeline {
     }
     stage('Terraform Apply') {
       steps {
-        withAWS(credentials: 'AWS-credential') {
-          
-            sh "terraform apply -auto-approve"
-          
+        withAWS(credentials: 'AWS-credential')     
+          sh "terraform apply -auto-approve"        
         }
       }
-    }
     stage('Ansible Apply') {
       steps {
-        sshagent(['ssh-amazon']) {
-          sh """cd ansible 
-          ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"""
+        withAWS(credentials: 'AWS-credential') {
+          sshagent(['ssh-amazon']) {
+            sh """cd ansible 
+            ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"""
+          }
         }
       }                
     }
