@@ -19,10 +19,10 @@
         name: docker
         state: started
         enabled: true   
-    #- name: Instalar Python3
-      #become: false
-      #yum:
-        #name: python
+    - name: Instalar Python3
+      become: false
+      yum:
+        name: python
         #state: latest
     - name: Instalar Docker Compose
       pip:
