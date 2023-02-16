@@ -43,7 +43,8 @@
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Run docker-compose up
       shell: 
-        cmd: pwd 
+        cmd: cd /home/ec2-user/
+        cmd: docker-compose --no-build -d
       #docker_compose:
         #build: no
         #recreate: never
