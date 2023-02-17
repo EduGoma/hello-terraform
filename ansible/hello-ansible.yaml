@@ -28,7 +28,8 @@
     - name: Install requests
       pip:
         name: requests
-        state: present  
+        state: present
+        executable: pip3
     - name: Instalar Docker Compose
       pip:
         name: docker-compose>1.7.0,<2.0.0
