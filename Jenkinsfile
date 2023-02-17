@@ -45,7 +45,7 @@ pipeline {
         withAWS(credentials: 'AWS-credential') {
           sshagent(['ssh-amazon']) {
             sh """cd ansible 
-            ansible-playbook -i aws_ec2.yaml hello-ansible.yaml"""
+            ansible-playbook -i aws_ec2.yaml hello-ansible.yaml -e 'ansible_python_interpreter=/usr/bin/python3'"""
           }
         }
       }                
