@@ -22,15 +22,15 @@
     - name: installar python
       yum:
         name: python
-        state: latest 
-    - name: Instalar Docker Compose
-      pip:
-        name: docker-compose
-        executable: pip3
-      become: false
+        state: latest     
     - name: Instalar libreria docker
       pip:
         name: docker
+        executable: pip3
+      become: false
+    - name: Instalar Docker Compose
+      pip:
+        name: docker-compose>1.7.0,<2.0.0
         executable: pip3
       become: false
     - name: Copy local directory to remote server
@@ -39,7 +39,7 @@
         dest: "/home/ec2-user/"
         owner: ec2-user
         group: ec2-user
-        mode: 0755
+        mode: 0744
     - name: add ec2-user to docker group
       user:
         name: ec2-user
