@@ -9,12 +9,7 @@
       wait_for_connection:
         delay: 30
         sleep: 5
-        timeout: 300
-- hosts: all
-  become: true
-  vars:
-    ansible_user: ec2-user
-  tasks:    
+        timeout: 300  
     - name: Instalar Docker
       yum:
         name: docker
