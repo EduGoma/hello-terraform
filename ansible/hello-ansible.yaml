@@ -40,18 +40,9 @@
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Ejecutar docker-compose up
-      become_user: ec2-user 
-      #command: docker-compose -f /home/ec2-user/docker-compose.yaml up -d
-    #- name: Run docker-compose up --no-build
-      #become: false
-      #shell: /usr/local/bin/docker-compose up -d
-        #cmd: cd /home/ec2-user/
-        #cmd: 
       docker_compose:
-        #recreate: never
-        project_src: /home/ec2-user
-        vars:
-          ansible_python_interpreter: /usr/bin/python3
-
-      register: output
+        project_src: /home/ec2-user        
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
+      #command: docker-compose -f /home/ec2-user/docker-compose.yaml up -d
     
