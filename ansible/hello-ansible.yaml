@@ -48,8 +48,8 @@
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
     - name: Ejecutar docker-compose up --no-build
-      become_user: ec2-user 
-      command:  chdir=/home/ec2-user/ docker-compose up -d
+      become_user: ec2-user chdir=/home/ec2-user/
+      command: docker-compose up -d
     #- name: Run docker-compose up
       #become: false
       #shell: 
