@@ -50,9 +50,9 @@
     - name: Ejecutar docker-compose up --no-build
       become_user: ec2-user 
       #command: docker-compose -f /home/ec2-user/docker-compose.yaml up -d
-    #- name: Run docker-compose up 
+    #- name: Run docker-compose up --no-build
       #become: false
-      shell: docker-compose --no-build -d
+      shell: docker-compose up -d
         #cmd: cd /home/ec2-user/
         #cmd: 
       #docker_compose:
