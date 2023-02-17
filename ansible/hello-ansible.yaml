@@ -52,11 +52,11 @@
       #command: docker-compose -f /home/ec2-user/docker-compose.yaml up -d
     #- name: Run docker-compose up --no-build
       #become: false
-      shell: /usr/local/bin/docker-compose up -d
+      #shell: /usr/local/bin/docker-compose up -d
         #cmd: cd /home/ec2-user/
         #cmd: 
-      #docker_compose:
+      docker_compose:
         #recreate: never
-        #project_src: /home/ec2-user
-      #register: output
+        project_src: /home/ec2-user
+      register: output
     
