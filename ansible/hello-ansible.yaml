@@ -47,7 +47,7 @@
         append: true
     - name: Descarga de imagen
       command: "docker pull ghcr.io/edugoma/hello-terraform:latest "
-    - name: Ejecutar docker-compose up --no-build
+    - name: Ejecutar docker-compose up
       become_user: ec2-user 
       #command: docker-compose -f /home/ec2-user/docker-compose.yaml up -d
     #- name: Run docker-compose up --no-build

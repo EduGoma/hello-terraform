@@ -11,7 +11,7 @@ provider "aws" {
   region = "eu-west-1"
 }
 resource "aws_instance" "app_server" {
-  ami                    = "ami-0b752bf1df193a6c4"
+  ami                    = "ami-06d94a781b544c133"
   instance_type          = "t2.micro"
   key_name               = "clave-lucatic"
   subnet_id              = "subnet-00ce9b5739c0bcabe"
