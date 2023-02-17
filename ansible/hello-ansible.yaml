@@ -30,6 +30,11 @@
         name: requests
         state: present
         executable: pip3
+    - name: Install docker pip
+      pip:
+        name: docker
+        state: present
+        executable: pip3
     - name: Instalar Docker Compose
       pip:
         name: docker-compose>1.7.0,<2.0.0
