@@ -25,7 +25,7 @@
         name: ec2-user
         groups: docker
         append: true    
-    - name: Instalar Docker Compose
+    - name: Instalar librerias
       pip:
         name: 
         - docker
