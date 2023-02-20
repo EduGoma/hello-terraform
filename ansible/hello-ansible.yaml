@@ -24,18 +24,18 @@
       user:
         name: ec2-user
         groups: docker
-        append: true
-    - name: Instalar Docker Compose
-      pip:
-        name: docker-compose
-        state: present
-        executable: pip3
+        append: true    
     - name: Instalar Docker Compose
       pip:
         name: 
         - docker
         state: present
-        executable: pip
+    - name: Instalar Docker Compose
+      pip:
+        name: docker-compose
+        state: present
+        executable: pip3
+
       become: false
     - name: Copy local directory to remote server
       copy:
