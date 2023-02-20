@@ -36,7 +36,6 @@
         name: docker-compose
         state: present
         executable: pip3
-
       become: false
     - name: Copy local directory to remote server
       copy:
@@ -51,7 +50,5 @@
       docker_compose:
         project_src: /home/ec2-user
         pull: true   
-      vars:
-        ansible_python_interpreter: /usr/bin/python3
       #command: docker-compose -f /home/ec2-user/docker-compose.yaml up -d
     
