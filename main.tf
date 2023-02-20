@@ -16,6 +16,7 @@ resource "aws_instance" "app_server" {
   key_name               = "clave-lucatic"
   subnet_id              = "subnet-00ce9b5739c0bcabe"
   vpc_security_group_ids = ["sg-068c536b23394be69"]
+  count                  = var.count
   tags = {
     Name = var.instance_name
     APP  = "vue2048"
