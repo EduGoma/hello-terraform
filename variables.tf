@@ -3,7 +3,7 @@ variable "instance_name" {
   type        = string
   default     = "InstanciaEC2"
 }
-variable "count" {
+variable "contar" {
   description = "Número de instancias a crear"
   type        = number
   default     = 2
