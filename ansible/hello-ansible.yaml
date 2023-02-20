@@ -15,6 +15,11 @@
         name: docker
         state: present
         update_cache: yes
+    - name: Instalar Python
+      yum:
+        name: python
+        state: present
+        update_cache: yes
     - name: Inicio Docker
       service:
         name: docker
