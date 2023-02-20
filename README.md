@@ -12,3 +12,10 @@ La arquitectura de la aplicación consiste en lo siguiente:
 
 * Una instancia EC2 de AWS que ejecuta un servidor web Nginx.
 * Un contenedor Docker que contiene la aplicación web.
+## Uso
+Para ejecutar el programa, se deben seguir los siguientes pasos:
+
+1. Clonar este repositorio.
+2. Descargar las herramientas a utilizar.
+3. Configurar las credenciales de AWS en Terraform. Para ello, editar el archivo terraform/variables.tf y reemplazar los valores de las variables access_key y secret_key por las credenciales de su cuenta de AWS.
+4. Ejecutar desde Jenkins.
