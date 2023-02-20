@@ -30,12 +30,10 @@
         name: 
         - docker
         state: present
-        executable: pip3
     - name: Instalar Docker Compose
       pip:
         name: docker-compose
         state: present
-        executable: pip3
       become: false
     - name: Copy local directory to remote server
       copy:
