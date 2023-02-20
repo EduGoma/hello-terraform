@@ -35,6 +35,7 @@
         name: 
         - docker
         state: present
+      become: false
     - name: Instalar Docker Compose
       pip:
         name: docker-compose
