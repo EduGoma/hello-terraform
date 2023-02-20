@@ -27,9 +27,15 @@
         append: true
     - name: Instalar Docker Compose
       pip:
-        name: docker-compose>1.7.0,<2.0.0
+        name: docker-compose
         state: present
         executable: pip3
+    - name: Instalar Docker Compose
+      pip:
+        name: 
+        - docker
+        state: present
+        executable: pip
       become: false
     - name: Copy local directory to remote server
       copy:
