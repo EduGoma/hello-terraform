@@ -18,7 +18,7 @@ resource "aws_instance" "app_server" {
   vpc_security_group_ids = ["sg-068c536b23394be69"]
   count                  = var.contar
   tags = {
-    Name = var.instance_name
+    Name = "${var.instance_name}-${count.index + 1}"
     APP  = "vue2048"
   }
 }
