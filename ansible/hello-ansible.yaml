@@ -17,7 +17,7 @@
         update_cache: yes
     - name: Instalar Python
       yum:
-        name: python
+        name: python-pip
         state: present
         update_cache: yes
     - name: Inicio Docker
